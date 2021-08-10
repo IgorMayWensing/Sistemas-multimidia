@@ -1,0 +1,21 @@
+Como executar:
+
+javac *.java
+rmiregistry &
+java -Djava.security.policy=server.policy Server
+
+Em outro terminal:
+java -Djava.security.policy=server.policy Client
+----------------------------------------------------
+
+Cada cliente executa `getCount()` uma vez.
+Dois ou mais clientes podem executar `getCount()` ao mesmo tempo,
+não há condição de corrida, pois o método que implementa `getCount()`
+é sincronizado, isto é, somente uma thread tem acesso a ele por vez.
+
+O servidor trata overflow, então se as chamadas feitas pelos clientes
+ultrapassarem 9223372036854775807 (máximo da variável long) o servidor
+irá avisar que "ocorreu um overflow e o contador foi resetado!".
+
+XD
+

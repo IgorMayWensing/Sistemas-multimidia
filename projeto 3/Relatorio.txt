@@ -1,0 +1,10 @@
+Igor May Wensing
+17203362
+
+PRÁTICA 3 
+
+Questão 1) O valor do campo offset é (36000000)hex e o tamanho do arquivo é 768 KB. O cabeçalho possui 54 bytes.
+Questão 2) Resposta no código.
+Questão 3) O tamanho do cabeçalho é de 12 bytes.
+Questão 4) Não há perdas pois não teve compressão.
+Questão 5) Ao compactar o arquivo lena.bmp, gerou um arquivo de 718 KB com uma taxa de compressão de 1.071, já ao compactar o arquivo lena.cuif, gerou um arquivo de 652 KB com uma taxa de compressão de 1.179, logo lena.cuif compactou mais visto que os dois arquivos possuíam o mesmo tamanho inicialmente. A vantagem é que com o DPCM é usado uma função de predição, ou seja, como temos o primeiro valor de uma canal do píxel, é possível calular os seguintes usando essa função. Assim a entropia é menor.

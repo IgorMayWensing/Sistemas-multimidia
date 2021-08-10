@@ -1,0 +1,36 @@
+import java.net.MalformedURLException;
+import java.rmi.Naming;
+import java.rmi.RemoteException;
+import java.util.Scanner;
+import java.rmi.NotBoundException;
+
+public class Client {
+
+    RMI_Handler counter;
+
+    public Client() {
+        if(System.getSecurityManager() == null) {
+            System.setSecurityManager(new SecurityManager());
+        }
+
+        try {
+            counter =(RMI_Handler) Naming.lookup("rmi://127.0.0.1/Counter");
+        } catch(RemoteException | NotBoundException | MalformedURLException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void execute() {
+        try {
+            System.out.println(counter.getCount());
+        } catch (RemoteException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public static void main(String[] args) {
+        Client c = new Client();
+        c.execute();
+    }
+
+}

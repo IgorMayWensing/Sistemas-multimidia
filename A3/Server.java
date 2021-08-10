@@ -1,0 +1,24 @@
+import java.lang.SecurityManager;
+import java.net.MalformedURLException;
+import java.rmi.Naming;
+import java.rmi.RemoteException;
+
+public class Server {
+
+    public Server() {
+        if(System.getSecurityManager() == null) {
+            System.setSecurityManager(new SecurityManager());
+        }
+
+        try {
+            Naming.rebind("Counter", new Counter());
+        } catch (RemoteException | MalformedURLException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public static void main(String[] args) {
+        new Server();
+    }
+
+}

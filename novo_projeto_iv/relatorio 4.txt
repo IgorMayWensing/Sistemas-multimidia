@@ -1,0 +1,25 @@
+Igor May Wensing
+17203362
+
+Relatório 4
+
+Questão 1) Não implementa compressão pois o tamanho do arquivo gerado continuou igual ao tamanho do original e houve apenas uma mudança no espaço de cores
+
+Questão 2) PSNR (1) = inifnity dB
+	   PSNR (2) = 115.14899984580866 dB
+    	Há perdas pois os espaços de cores são diferentes, gerando ruído.
+
+Questão 3) taxa de compressão = tamanho do 1 / tamanho do 3
+	   taxa de compressão = 1069/687 = 1,556040756914119 : 1
+	O Symbol 128(Code 11) é o mais recorrente e o Symbol 256(Code 01000101110000) é o menos recorrente.
+
+Questão 4) PSNR (3) = 115.14899984580866 dB
+	Ocorreu perdas sim, mas a perda não é por causa da compressão de Huffman e sim por causa da compressão de RGB para YCbCr.
+
+Questão 5) taxa de compressão = tamanho do color_wheel.bmp / tamanho do 4
+	   taxa de compressão = 1069/ 112 = 9,544642857142857 : 1
+
+Questão 6) PSNR (4) = 147.04201605236645 dB
+	O valor do PSNR do 4 foi maior que o valor do PSNR do color_wheel.bpm. O motivo do erro gerado pelo 4 é devido a implementação feita pelo RLE, e houve perda de informação devido ao uso do bit menos significativo.
+
+Questão 7) A imagem que obteve maior compressão foi a color_wheel.bmp, devido ao fato de que a compressão RLE só é “efetiva” se a imagem tiver um grande agrupamento de símbolos iguais, que é o que acontece nesta imagem.

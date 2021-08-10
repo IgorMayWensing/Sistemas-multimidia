@@ -1,0 +1,40 @@
+import java.net.MalformedURLException;
+import java.rmi.Naming;
+import java.rmi.RemoteException;
+import java.util.Scanner;
+import java.rmi.NotBoundException;
+
+public class Client {
+
+	RMI_handler counter;
+    
+    static Scanner scanner = new Scanner(System.in);
+
+	static String input;
+
+    public Client() {
+        if(System.getSecurityManager() == null) {
+            System.setSecurityManager(new SecurityManager());
+        }
+
+        try {
+            counter =(RMI_handler) Naming.lookup("rmi://127.0.0.1/Counter");
+    		System.out.println("Digite get para ver o valor do contador ou sair para sair");
+            while (true) {
+				input = scanner.next();
+				if (input.contentEquals("get")) {
+					System.out.println(counter.getCount());
+				} else if (input.contentEquals("sair")) {
+					System.exit(0);
+				}
+			}
+        } catch (final Exception e) {
+			System.out.println(e.getMessage());
+		}
+    }
+
+    public static void main(String[] args) {
+        Client c = new Client();
+    }
+
+}
